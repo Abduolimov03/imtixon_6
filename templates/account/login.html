@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Tizimga kirish</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #f4f6f9;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 380px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container form input {
+            width: 100%;
+            padding: 10px 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2d89ef;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .login-container button:hover {
+            background-color: #1b5fab;
+        }
+
+        .messages {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .messages.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .messages.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .back-home {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .back-home a {
+            color: #2d89ef;
+            text-decoration: none;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Tizimga kirish</h2>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="messages {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+                {{ form.as_p }}
+
+            <button type="submit">Kirish</button>
+        </form>
+
+        <div class="back-home">
+            <a href="{% url 'signup' %}">Ro'yxatdan o'tmaganmisiz?</a><br>
+            <a href="{% url 'reset' %}">Parolni unitdingizmi?</a><br>
+            <a href="{% url 'home' %}">🏠 Bosh sahifa</a>
+        </div>
+    </div>
+</body>
+</html>

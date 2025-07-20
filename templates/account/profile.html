@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Profil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            background: #fff;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .profile-info {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .profile-info strong {
+            display: inline-block;
+            width: 120px;
+            color: #000;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .back-link a {
+            text-decoration: none;
+            color: #fff;
+            background: #007bff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Foydalanuvchi Profili</h2>
+        <div class="profile-info">
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Ismi:</strong> {{ user.first_name }}</p>
+            <p><strong>Familiyasi:</strong> {{ user.last_name }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+        </div>
+
+        <div class="back-link">
+            <a href="{% url 'home' %}">🏠 Bosh sahifaga qaytish</a>
+            <a href="{% url 'change-pass' %}">Change password</a>
+
+        </div>
+    </div>
+</body>
+</html>

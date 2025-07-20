@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ product.brand }} - Mahsulot tafsilotlari</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            background: linear-gradient(to right, #e1f5fe, #fce4ec);
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+            font-size: 16px;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        .back-link:hover {
+            color: #0056b3;
+        }
+
+        .product-header {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .product-header img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-info h1 {
+            font-size: 28px;
+            color: #6a1b9a;
+            margin-bottom: 15px;
+        }
+
+        .product-info p {
+            font-size: 16px;
+            margin: 8px 0;
+        }
+
+        .product-info .price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #388e3c;
+        }
+
+        .product-meta {
+            margin-top: 30px;
+            font-size: 15px;
+            color: #666;
+        }
+
+        .actions {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-edit {
+            background-color: #ffb300;
+            color: white;
+        }
+
+        .btn-edit:hover {
+            background-color: #ffa000;
+        }
+
+        .btn-delete {
+            background-color: #e53935;
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background-color: #d32f2f;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #999;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <a href="{% url 'product_list' %}" class="back-link">← Barcha mahsulotlarga qaytish</a>
+
+        <div class="product-header">
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.brand }}">
+            {% else %}
+                <img src="{% static 'default/products.jpg' %}" alt="Default image">
+            {% endif %}
+
+            <div class="product-info">
+                <h1>{{ product.brand }}</h1>
+                <p>{{ product.desc }}</p>
+                <p class="price">Narxi: {{ product.price }} so‘m</p>
+                <p>Kategoriya: <strong>{{ product.category.name }}</strong></p>
+                <p>Foydalanuvchi: <strong>{{ product.user.username }}</strong></p>
+            </div>
+        </div>
+
+        <div class="product-meta">
+            <p>Yaratilgan sana: {{ product.created_at }}</p>
+        </div>
+
+        <div class="actions">
+            <a href="{% url 'product-update' product.id %}" class="btn btn-edit">✏️ Tahrirlash</a>
+            <a href="{% url 'product-delete' product.id %}" class="btn btn-delete" onclick="return confirm('Rostdan ham o‘chirmoqchimisiz?')">🗑️ O‘chirish</a>
+        </div>
+
+    </div>
+
+    <footer>
+        © {{ year|default:2025 }} Onlayn Do‘kon — Barcha huquqlar himoyalangan.
+    </footer>
+
+</body>
+</html>
