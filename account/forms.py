@@ -38,16 +38,16 @@ class ChangePassForm(forms.Form):
     code = forms.CharField(label='Email ga yuborilgan kod', max_length=6)
 
     def clean(self):
-        cleane_data = super().clean()
+        cleaned_data = super().clean()
         new_pass = self.cleaned_data['new_pass']
         confirm_pass = self.cleaned_data['confirm_pass']
         if new_pass != confirm_pass:
             raise forms.ValidationError('Parollar mos meas')
-        return cleane_data
+        return cleaned_data
 
 class ResetPassForm(forms.Form):
     password = forms.CharField(label='Yangi password', widget=forms.PasswordInput)
-    password_conform = forms.CharField(label='Parol tasdigi', widget=forms.PasswordInput)
+    password_confirm = forms.CharField(label='Parol tasdigi', widget=forms.PasswordInput)
     code = forms.CharField(max_length=6)
 
     def clean(self):

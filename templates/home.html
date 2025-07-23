@@ -154,7 +154,7 @@
     <nav>
       <a href="#">Bosh sahifa</a>
       <a href="{% url 'product_list' %}">Mahsulotlar</a>
-      <a href="#">Aloqa</a>
+      <a href="{% url 'contact' %}">Aloqa</a>
 
       {% if user.is_authenticated %}
         <a href="{% url 'profile' %}">👤 Profile</a>

@@ -41,7 +41,7 @@ class ProductDelete(DeleteView):
     template_name = 'delete_product.html'
     success_url = reverse_lazy('product_list')
 
-
+login_required(login_url='login')
 def category_list(request):
     query = request.GET.get('q', '')
     if query:

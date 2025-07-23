@@ -3,14 +3,15 @@ from django.contrib.auth import logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from account.forms import ChangePassForm, ResetPassForm
+from category.models import Product
 from .utils import generate_code, send_to_mail
 from datetime import datetime, timedelta
 from account.forms import SignUpForms
 from account.forms import LoginForms
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from .forms import UserUpdateForm, ProfileUpdateForm
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -170,5 +171,14 @@ def update_profile(request):
         'u_form': u_form,
         'p_form': p_form
     })
+
+# @login_required(login_url='login')
+# def product_list(request):
+#     products = Product.objects.all()
+#     return render(request, 'category_list.html', {'products':products})
+#
+
+
+
 
 

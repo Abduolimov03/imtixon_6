@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import signup_view, login_view, logout_view, profile, change_pass_view, reset_pass, reset_pass2,  update_profile
+from . import views
 
 urlpatterns = [
     path('signup/', signup_view, name='signup'),
@@ -10,5 +11,6 @@ urlpatterns = [
     path('reset/', reset_pass, name='reset'),
     path('reset2/', reset_pass2, name='reset2'),
     path('profile/update/', update_profile, name='update_profile'),
+    # path('products/', views.product_list, name='product_list'),
 
 ]
