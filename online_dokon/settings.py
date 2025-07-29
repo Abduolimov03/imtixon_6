@@ -28,6 +28,7 @@ SECRET_KEY = "django-insecure-%-18$@#k59*ndpx47gkr)iw09(el%i71bwt6=es42nx!47rjdv
 DEBUG = True
 
 ALLOWED_HOSTS = ['imtixon-online-dokon.onrender.com']
+# ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition

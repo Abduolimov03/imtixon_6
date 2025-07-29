@@ -170,7 +170,7 @@
     <div class="hero-content">
       <h1>Sifatli mahsulotlar – arzon narxda</h1>
       <p>Yangi texnologiyalar, kundalik ehtiyojlar uchun eng yaxshi tanlov</p>
-      <a href="#" class="btn">Xarid qilish</a>
+      <a href="{% url 'product_list' %}" class="btn">Xarid qilish</a>
 
       {% if user.is_authenticated %}
         <a href="{% url 'update_profile' %}" class="btn">✏️ Profilni yangilash</a>
