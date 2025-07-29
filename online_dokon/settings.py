@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-%-18$@#k59*ndpx47gkr)iw09(el%i71bwt6=es42nx!47rjdv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['imtixon-online-dokon.onrender.com']
 
 
 # Application definition
