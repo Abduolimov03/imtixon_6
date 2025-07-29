@@ -4,3 +4,4 @@ o==0.0.2b2
 pillow==11.3.0
 psycopg2==2.9.10
 sqlparse==0.5.3
+gunicorn
